@@ -5,6 +5,7 @@ class ClassState extends React.Component {
         super(props);
         this.state = {
             error: true,
+            loading: false,
         };
     }
 
@@ -18,9 +19,13 @@ class ClassState extends React.Component {
                 <p>Error: el código es incorrecto</p>
               )}
 
+              {this.state.loading && (
+                <p>Cargando...</p>
+              )}
+
               <input placeholder="Código de seguridad"/>
               <button
-                onClick={() => this.setState({ error: !this.state.error })}
+                onClick={() => this.setState({ loading: true })}
               >Comprobar</button>
             </div>
         )
